@@ -11,9 +11,16 @@ app.set('view engine', 'hbs')
 app.get('/', (req, res) => {
     Record.find()
         .lean()
-        .then(records =>
-            res.render('index', { records }))
+        .then(records => res.render('index', { records }))
         .catch(error => console.error(error))
+})
+
+app.get('/edit', (req, res) => {
+    res.render('edit')
+})
+
+app.get('/new', (req, res) => {
+    res.render('new')
 })
 
 app.listen(3000, () => {
