@@ -7,7 +7,8 @@ const db = require('../../config/mongoose')
 db.once('open', () => {
     allCategory.forEach((item) => {
         Category.create({
-            category: item.category
+            category: item.category,
+            icon: item.icon
         }).then(() => {
             db.close()
         })
