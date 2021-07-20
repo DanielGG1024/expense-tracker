@@ -1,6 +1,6 @@
 <h3>請修改你的支出</h3>
 
-<form action="/edit/{{record._id}}?_method=PUT" method="POST">
+<form action="/edit/{{record._id}}?_method=PUT" method="POST" novalidate>
     <div class="form-group">
         <label for="name">名稱* :</label>
         <input type="text" name="name" id="name" value="{{record.name}}">
@@ -8,16 +8,17 @@
 
     <div class="form-group">
         <label for="date">日期* :</label>
-        <input type="date" name="date" id="date" value="{{record.date}}">
+        <input type="date" name="date" id="date" value="{{toDate record.date}}">
+    </div>
+    <div>
+
     </div>
     <div class="form-group">
         <label for="category">類別* :</label>
-        <select name="category" value="{{record.category}}">
-            <option value="1">家居物業</option>
-            <option value="2">交通出行</option>
-            <option value="3">休閒娛樂</option>
-            <option value="4">餐飲食品</option>
-            <option value="5">其他</option>
+        <select name="category" id="category" data-value="{{record.category}}" aria-label="Default select" required>
+            {{#each categories}}
+            <option class="option" value="{{this._id}}">{{this.category}}</option>
+            {{/each}}
         </select>
     </div>
 
@@ -30,3 +31,10 @@
         <button class="btn btn-light" type="submit" name="submit">送出</button>
     </div>
 </form>
+<h1>record:{{record.category}}</h1>
+<hr>
+{{#each categories}}
+<h1>{{this.category}}</h1>
+<h1>{{this._id}}</h1>
+{{/each}}
+<script src="/javascripts/ddd.js"></script>

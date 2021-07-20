@@ -6,7 +6,7 @@ let allrecord = recordJson.results
 const db = require('../../config/mongoose')
 
 
-
+  //*******/
 db.once('open', () => {
     const categoryList = {}
     Category.find()
@@ -33,3 +33,4 @@ db.once('open', () => {
         })
         .catch(error => console.error(error))
 })
+  //*******/
