@@ -1,40 +1,51 @@
-<h3>請修改你的支出</h3>
-
-<form action="/edit/{{record._id}}?_method=PUT" method="POST" novalidate>
-    <div class="form-group">
-        <label for="name">名稱* :</label>
-        <input type="text" name="name" id="name" value="{{record.name}}">
+<div class="container">
+    <div class="row">
+        <div class="col-8 mx-auto">
+            <form action="/records/edit/{{record._id}}?_method=PUT" method="POST" >
+                <h3 class="text-center mb-4 mt-5">請修改你的支出</h3>
+                <div class="form-row my-3">
+                    <div class="col-3 text-center">
+                        <label for="name">名稱* :</label>
+                    </div>
+                    <div class="col-9">
+                        <input class="form-control" type="text" name="name" id="name" value="{{record.name}}" required>
+                    </div>
+                </div>
+                <div class="form-row my-3">
+                    <div class="col-3 text-center">
+                        <label for="date">日期* :</label>
+                    </div>
+                    <div class="col-9">
+                        <input class="form-control" type="date" name="date" id="date" value="{{toDate record.date}}"
+                            required>
+                    </div>
+                </div>
+                <div class="form-row my-3">
+                    <div class="col-3 text-center">
+                        <label for="category">類別* :</label>
+                    </div>
+                    <div class="col-9">
+                        <select class="form-control" name="category" id="category" required>
+                            {{#each categories}}
+                            <option value="{{this._id}}">{{this.category}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row my-3">
+                    <div class="col-3 text-center">
+                        <label for="amount">金額* :</label>
+                    </div>
+                    <div class="col-9">
+                        <input class="form-control" type="number" name="amount" id="amount" value="{{record.amount}}"
+                            required>
+                    </div>
+                </div>
+                <div class="text-center">
+                   <button type="submit" class="btn btn-secondary">修改</button>
+                </div>
+            </form>
+        </div>
     </div>
-
-    <div class="form-group">
-        <label for="date">日期* :</label>
-        <input type="date" name="date" id="date" value="{{toDate record.date}}">
-    </div>
-    <div>
-
-    </div>
-    <div class="form-group">
-        <label for="category">類別* :</label>
-        <select name="category" id="category" data-value="{{record.category}}" aria-label="Default select" required>
-            {{#each categories}}
-            <option class="option" value="{{this._id}}">{{this.category}}</option>
-            {{/each}}
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label for="amount">金額* :</label>
-        <input type="number" name="amount" id="amount" value="{{record.amount}}">
-    </div>
-
-    <div class="form-group">
-        <button class="btn btn-light" type="submit" name="submit">送出</button>
-    </div>
-</form>
-<h1>record:{{record.category}}</h1>
-<hr>
-{{#each categories}}
-<h1>{{this.category}}</h1>
-<h1>{{this._id}}</h1>
-{{/each}}
-<script src="/javascripts/ddd.js"></script>
+    \
+</div>
