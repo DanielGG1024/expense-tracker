@@ -5,13 +5,9 @@ const allCategory = categoryJson.results
 const db = require('../../config/mongoose')
 
 db.once('open', () => {
-    allCategory.forEach((item) => {
-        Category.create({
-            category: item.category,
-            icon: item.icon
-        }).then(() => {
+    Category.create(allCategory)
+        .then(() => {
+            console.log('categorySeeder done!!')
             db.close()
         })
-    })
-    console.log('categorySeeder done!!')
 })

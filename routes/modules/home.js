@@ -10,7 +10,7 @@ const Record = require('../../models/record')
 //     const filter = {}
 //     if (categoryQuery) filter.category = categoryQuery
 //     const categories = []
-     
+
 //     Category.find()
 //         .lean()
 //         .then(category => categories.push(...category))
@@ -48,7 +48,8 @@ router.get('/', (req, res) => {
                     records.forEach(record => totalAmount += record.amount)
                     res.render('index', { records, categories, totalAmount })
                 })
-                .catch(error => console.error(error))
+    
         })
+
 })
 module.exports = router
