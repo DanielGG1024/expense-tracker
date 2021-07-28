@@ -1,6 +1,6 @@
 
 
-# talk_rubbish
+# expense-tracker
 
 ![image](https://github.com/DanielGG1024/expense-tracker/blob/main/expense-tracker.png)
 
