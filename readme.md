@@ -31,7 +31,7 @@ git clone https://github.com/DanielGG1024/expense-tracker.git
 ```
 2. 使用終端機移動至該目錄
 ```
-cd expense-tracker
+cd expense-tracker-main
 ```
 3. 安裝npm 套件
 ```
